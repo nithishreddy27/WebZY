@@ -67,7 +67,7 @@ export default function Home() {
     tempElement.style.border = '1px solid black';
     tempElement.style.width = "50%";
     tempElement.style.height = "50%";
-    tempElement.style.height = "100px";
+    // tempElement.style.height = "100px  ";
     
     tempElement.addEventListener('click', (e) => {
       // Your onclick event logic here
