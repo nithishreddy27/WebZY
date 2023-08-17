@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState ,useRef } from 'react'
 import { FaBeer } from 'react-icons/fa';
 import { GoHome } from 'react-icons/go';
 import { GoPerson } from 'react-icons/go';
@@ -10,13 +10,25 @@ import { AiFillTwitterCircle } from 'react-icons/ai';
 import { MdOutlineDesignServices } from 'react-icons/md';
 import { CgWebsite } from 'react-icons/cg';
 import { AiOutlineMail } from 'react-icons/ai';
+import {motion,AnimatePresence, delay,useAnimation , useInView} from "framer-motion"
 
 export default function index() {
     const displayContents = ["developer","designer","photographer"]
     const [occupation, setOccupation] = useState("developer")
     const [currentWordIndex, setCurrentWordIndex] = useState(0);
     const [currentLetterIndex, setCurrentLetterIndex] = useState(0);
-  
+    const ref = useRef(null)
+    const isInView = useInView(ref , { once:true})
+    const mainControls = useAnimation()
+    const slideControls = useAnimation()
+    useEffect(()=>{
+        console.log("true",isInView)
+        if(isInView){
+            mainControls.start("visible")
+        }
+    },[isInView])
+
+
     useEffect(() => {
       const interval = setInterval(() => {
         setCurrentLetterIndex((prevIndex) => {
@@ -45,14 +57,22 @@ export default function index() {
     }, [currentWordIndex]);
   
 
-  return (
-    <main className='h-screen w-screen'>
-        <div className='flex h-screen'>
+  return ( 
+    <main className='h-screen w-screen' ref={ref} >
+        <div className='flex h-screen' >
             {/* sidebar */}
         <div className="w-1/5 bg-gray-900 fixed  h-screen text-white p-10" >
             <div className=''>
                 <img src="/nr6.jpeg" alt="" className='h-36 rounded-full w-36 mx-auto border border-slate-800' />
-                <h1 className='text-xl py-4 text-center font-bold'>Nithish Reddy</h1>
+                <motion.h1 className='text-xl py-4 text-center font-bold' 
+                variants={{
+                    hidden:{opacity:0 ,y:75},
+                    visible:{opacity:1,y:0}
+                }}
+                initial="hidden"
+                animate={mainControls}
+                transition= {{ duration:0.5 , delay:0.25}}
+                >Nithish Reddy</motion.h1>
             </div>
             <div className='flex justify-around'>
                 <Link  href={""}  className=''><AiOutlineInstagram className='h-7 w-7'/></Link>
@@ -82,7 +102,12 @@ export default function index() {
                 </div>
                 <div className='absolute z-30 h-screen w-[80%] opacity-100'>
                     <div>
-                    <h1 className='ml-[430px] mt-[300px] text-5xl text-white font-bold' >NITHISH REDDY  </h1>
+                    <motion.h1 className='ml-[430px] mt-[300px] text-5xl text-white font-bold'  initial={{y:-25,opacity:0}}
+                     animate={{y:0,opacity:1}}
+                     transition={{
+                     duration:1,
+                     delay:0.2
+                     }}>NITHISH REDDY  </motion.h1>
                     <h1 className='ml-[430px] mt-[10px] text-3xl text-white ' >I am a {occupation.substring(0, currentLetterIndex + 1)+" |"}  </h1>
                     </div>
                     {/* <h1 className='ml-[430px] mt-[400px] text-5xl text-white font-bold' >NITHISH REDDY</h1> */}
@@ -106,7 +131,13 @@ export default function index() {
 
                     </div>
                     <div className='w-[65%]'>
-                        <h1 className='font-bold text-2xl text-blue-900'>UI/UX Designer & Web Developer.</h1>
+                        <motion.h1 className='font-bold text-2xl text-blue-900' variants={{
+                    hidden:{opacity:0 ,y:75},
+                    visible:{opacity:1,y:0}
+                }}
+                initial="hidden"
+                animate={mainControls}
+                transition= {{ duration:0.5 , delay:0.25}}>UI/UX Designer & Web Developer.</motion.h1>
                         <p className='mt-2'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 
                        <div className='flex mt-10'>
@@ -383,6 +414,20 @@ export default function index() {
                         </div>
                       </div>
                     </div>
+                </div>
+            </div>
+
+
+            {/* services  */}
+            <div className='p-10 bg-sky-50'>
+                <div className=''>
+                    <h1 className='text-2xl font-bold '>Skills</h1>
+                    <div className='mt-1 h-1 bg-blue-700 w-9' />
+                    <p className='mt-5'>
+                        Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+                </div> 
+                <div className='my-5'>
+               
                 </div>
             </div>
          </div>

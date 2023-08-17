@@ -2,6 +2,9 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import { useState,useEffect } from 'react'
 import ReactDOMServer from 'react-dom/server';
+import {motion,AnimatePresence, delay} from "framer-motion"
+import { useRouter } from 'next/router';
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -13,6 +16,7 @@ export default function Home() {
   const [elements, setElements] = useState([])
   const [dipalyElements, setDipalyElements] = useState(false)
   const [selectedElement, setselectedElement] = useState("target")
+  const router = useRouter()
   // useEffect(()=>{
 
   //   const doc = document.getElementById("target").innerHTML;
@@ -102,36 +106,49 @@ export default function Home() {
   //   // Append the temporary element to the target element
   //   targetElement.appendChild(tempElement);
   // }
+  useEffect(()=>{
+    router.push("/skt")
+  },[])
   return (
-    <main className="min-h-screen flex" id='main-div'>
-      <div className='w-[30%]' id="div1">
-        {/* <p className='text-red-800 text-lg'>one</p> */}
-        {/* <form action="/api/addData" method='POST'>
-          <input type="text" name='Id' />
-          <button type="submit">Submit</button>
-        </form> */}
-
-        <button onClick={()=>{addElement("div")}}>Add div</button>
-        <button onClick={()=>{addElement("h1")}}>Add h1</button>
-        {dipalyElements && ( <div>
-
-        <button onClick={()=>{addElement("h1")}}>Add h1</button>
-        <button onClick={()=>{addElement("div")}}>Add h1</button>
-        <button onClick={()=>{addElement("span")}}>Add h1</button>
-
-        </div> )}
+//     <main className="min-h-screen flex" id='main-div'>
+//  <motion.h1 className="text-center font-bold text-2xl pt-5"
+//     initial={{y:-25,opacity:0}}
+//     animate={{y:0,opacity:1}}
+//     transition={{
+//       duration:0.75,
+//       delay:0.2
+//     }}>Sign up to your account</motion.h1>
 
 
-        {/* {Array.from({ length: count }, (err, i) => (
-              <div key={i}>Div {i + 1}</div>
-           ))} */}
+//       <div className='w-[30%]' id="div1">
+//         {/* <p className='text-red-800 text-lg'>one</p> */}
+//         {/* <form action="/api/addData" method='POST'>
+//           <input type="text" name='Id' />
+//           <button type="submit">Submit</button>
+//         </form> */}
 
-          {/* <button onClick={runMe}>Create</button> */}
-      </div>
+//         <button onClick={()=>{addElement("div")}}>Add div</button>
+//         <button onClick={()=>{addElement("h1")}}>Add h1</button>
+//         {dipalyElements && ( <div>
 
-          <div id='target' className='w-[70%] text-red-600' onMouseEnter={console.log("inside")}>
-           one
-          </div>
-    </main>
+//         <button onClick={()=>{addElement("h1")}}>Add h1</button>
+//         <button onClick={()=>{addElement("div")}}>Add h1</button>
+//         <button onClick={()=>{addElement("span")}}>Add h1</button>
+
+//         </div> )}
+
+
+//         {/* {Array.from({ length: count }, (err, i) => (
+//               <div key={i}>Div {i + 1}</div>
+//            ))} */}
+
+//           {/* <button onClick={runMe}>Create</button> */}
+//       </div>
+
+//           <div id='target' className='w-[70%] text-red-600' onMouseEnter={console.log("inside")}>
+//            one
+//           </div>
+//     </main>
+<></>
   )
 }
