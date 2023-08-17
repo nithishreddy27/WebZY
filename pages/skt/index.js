@@ -13,7 +13,7 @@ import { AiOutlineMail } from 'react-icons/ai';
 import {motion,AnimatePresence, delay,useAnimation , useInView} from "framer-motion"
 
 export default function index() {
-    const displayContents = ["developer","designer","fg"]
+    const displayContents = ["developer","designer"]
     const [occupation, setOccupation] = useState("developer")
     const [currentWordIndex, setCurrentWordIndex] = useState(0);
     const [currentLetterIndex, setCurrentLetterIndex] = useState(0);
@@ -61,9 +61,9 @@ export default function index() {
     <main className='h-screen w-screen' ref={ref} >
         <div className='flex h-screen' >
             {/* sidebar */}
-        <div className="w-1/5 bg-gray-900 fixed  h-screen text-white p-10" >
+        <div className="w-1/5 bg-gray-900 fixed  h-screen overflow-auto text-white p-10 " >
             <div className=''>
-                <img src="/skt2.png" alt="" className='h-36 rounded-full w-36 mx-auto border border-slate-800' />
+                <img src="/skt8.jpeg" alt="" className='h-36 rounded-full w-36 mx-auto border border-slate-800' />
                 <motion.h1 className='text-xl py-4 text-center font-bold' 
                 variants={{
                     hidden:{opacity:0 ,y:75},
@@ -74,21 +74,23 @@ export default function index() {
                 transition= {{ duration:0.5 , delay:0.25}}
                 >Sai Krishna Teja</motion.h1>
             </div>
-            <div className='flex justify-around'>
-                <Link  href={""}  className=''><img src="https://www.instagram.com/favicon.ico" alt="" srcset=""  className='h-7 w-7 grayscale hover:grayscale-0  ' /></Link>
+            <div className='flex justify-around pt-2'>
+                <Link  href={"https://www.instagram.com/sai_krishna__12/?next=https%3A%2F%2Faccountscenter.instagram.com%2F%3F__coig_login%3D1"}  className=''><img src="https://www.instagram.com/favicon.ico" alt="" srcset=""  className='h-7 w-7 grayscale hover:grayscale-0  ' /></Link>
                 {/* <Link href={""} ><img src="https://www.linkedin.com/favicon.ico" alt="" srcset=""  className='h-7 w-7 grayscale hover:grayscale-0  ' /></Link> */}
-                <Link href={""} ><img src="https://www.linkedin.com/favicon.ico" alt="" srcset=""  className='h-7 w-7 grayscale hover:grayscale-0  ' /></Link>
-                <Link href={""} ><img src="https://w7.pngwing.com/pngs/914/758/png-transparent-github-social-media-computer-icons-logo-android-github-logo-computer-wallpaper-banner-thumbnail.png" alt="" srcset="" className='h-7 w-7 grayscale hover:grayscale-0  '  /></Link>
-                <Link href={""} ><img src="https://www.leetcode.com/favicon.ico" alt="" srcset="" className='h-7 w-7 grayscale hover:grayscale-0  '  /></Link>
+                <Link href={"https://www.linkedin.com/in/sai-krishna-todupunuri-9bb09b210/"} ><img src="https://www.linkedin.com/favicon.ico" alt="" srcset=""  className='h-7 w-7 grayscale hover:grayscale-0  ' /></Link>
+                <Link href={"https://github.com/saikrishna1209"} ><img src="https://w7.pngwing.com/pngs/914/758/png-transparent-github-social-media-computer-icons-logo-android-github-logo-computer-wallpaper-banner-thumbnail.png" alt="" srcset="" className='h-7 w-7 grayscale hover:grayscale-0  '  /></Link>
+                {/* <Link href={""} ><img src="https://www.leetcode.com/favicon.ico" alt="" srcset="" className='h-7 w-7 grayscale hover:grayscale-0  '  /></Link> */}
             </div>
             <div className='flex flex-col mt-10 text-xl'>
                 
-                <div className='flex my-4'><GoHome /> <a href="#home" className='mx-3'>Home</a></div>
-                <div className='flex my-4'><GoPerson /> <a href="#about" className='mx-3'>About</a></div>
-                <div className='flex my-4'><HiOutlineDocument /> <a href="#resume" className='mx-3 '>Resume</a></div>
+                <div className='flex my-4'>
+                  <GoHome size={24} /> <a href="#home" className='mx-3'>Home</a>
+                  </div>
+                <div className='flex my-4'><GoPerson size={24}/> <a href="#about" className='mx-3'>About</a></div>
+                <div className='flex my-4'><HiOutlineDocument size={24} /> <a href="#resume" className='mx-3 '>Resume</a></div>
                 {/* <div className='flex my-4'><CgWebsite /> <a href="" className='mx-3'>Portfolio</a></div> */}
-                <div className='flex my-4'><MdOutlineDesignServices /> <a href="#services" className='mx-3'>Non-academics</a></div>
-                <div className='flex my-4'><AiOutlineMail /> <a href="#contact" className='mx-3'>Contact</a></div> 
+                <div className='flex my-4'><MdOutlineDesignServices size={24} /> <a href="#services" className='mx-3'>Non-academics</a></div>
+                <div className='flex my-4'><AiOutlineMail  size={24}/> <a href="#contact" className='mx-3'>Contact</a></div> 
             </div>
 
         </div>
@@ -102,7 +104,7 @@ export default function index() {
                 </div>
                 <div className='absolute z-30 h-screen w-[80%] opacity-100'>
                     <div className='mx-auto'>
-                    <motion.h1 className='ml-[430px] mt-[300px] text-5xl text-white font-bold'  initial={{y:-25,opacity:0}}
+                    <motion.h1 className='ml-[430px] mt-[400px] text-5xl text-white font-bold'  initial={{y:-25,opacity:0}}
                      animate={{y:0,opacity:1}}
                      transition={{
                      duration:1,
@@ -141,7 +143,7 @@ pursue opportunities for professional growth..</p>
                 }}
                 initial="hidden"
                 animate={mainControls}
-                transition= {{ duration:0.5 , delay:0.25}}>    Frontend Developer &&     Full Stack Developer</motion.h1>
+                transition= {{ duration:0.5 , delay:0.25}}>    Frontend Developer &     Full Stack Developer</motion.h1>
                         <p className='mt-2'>Crafting Seamless User Experiences, One Line of Code at a Time – Frontend & Full Stack Wizard.</p>
 
                        <div className='flex mt-10'>
@@ -218,9 +220,9 @@ pursue opportunities for professional growth..</p>
                                         9347842364
                                     </td>
                                 </tr>
-                                <tr className="bg-white  dark:bg-gray-800 dark:border-gray-700">
+                                <tr className="bg-white pb-2 dark:bg-gray-800 dark:border-gray-700">
                                     
-                                    <td className="px-6 py-4">
+                                    <td className="px-6 py-4 ">
                                     DOB
                                     </td>
                                     <td className="px-6 py-4">
@@ -241,7 +243,7 @@ pursue opportunities for professional growth..</p>
                         </div>
 
                        </div>
-                        <p className='mt-2'>Dedicated Frontend Developer skilled in creating engaging user interfaces and seamless user experiences through proficient use of HTML, CSS, and JavaScript, aiming to contribute creatively to web development projects.
+                        <p className='mt-4'>Dedicated Frontend Developer skilled in creating engaging user interfaces and seamless user experiences through proficient use of HTML, CSS, and JavaScript, aiming to contribute creatively to web development projects.
 
 </p>
                         <p className='mt-2'>Results-driven Full Stack Developer with expertise in both frontend and backend technologies, seeking to leverage comprehensive coding skills and system design proficiency to deliver dynamic and responsive web applications that fulfill user needs and business objectives.
@@ -299,9 +301,9 @@ pursue opportunities for professional growth..</p>
             <tr className=" dark:bg-gray-800 dark:border-gray-700">
                 
                 <td className="px-6 py-1 text-xl">
-                   CSS, TailwindCSS
+                   JAVA
                     <div className="w-[40%] h-2  relative rounded-md left-0 bg-sky-700   my-2">
-                                    <div className="w-[50%] absolute right-0 bg-white h-2"></div>
+                                    <div className="w-[20%] absolute right-0 bg-white h-2"></div>
                     </div>
                 </td>
                 <td className="px-6 py-1 text-xl">
@@ -352,8 +354,7 @@ pursue opportunities for professional growth..</p>
                 <div className=''>
                     <h1 className='text-2xl font-bold '>Resume</h1>
                     <div className='mt-1 h-1 bg-blue-700 w-9' />
-                    <p className='mt-5'>
-                        Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+                    
                 </div>
                 <div className='flex mt-10'>
                     <div className='w-[50%]'>
